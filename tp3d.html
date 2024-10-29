@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Affichage 3D avec Zoom</title>
+    <style>
+        body { margin: 0; }
+        .container { display: flex; flex-direction: column; align-items: center; margin-top: 20px; }
+        canvas { display: block; transition: transform 0.3s ease; cursor: pointer; }
+        canvas:hover { transform: scale(1.1); }
+        .tp-content { text-align: center; margin-top: 20px; }
+        .cta-button { display: inline-block; margin-top: 10px; padding: 10px 20px; background-color: #333; color: white; text-decoration: none; border-radius: 5px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="tp-content">
+            <canvas id="3dModel"></canvas>
+            <a href="tabla.blend" download="TP1_Web3D" class="cta-button">Télécharger le TP1</a>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
+    <script>
+        // Initialize the scene, camera, and renderer
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer({ canvas: document.getElementById('3dModel'), antialias: true });
+        renderer.setSize(600, 400);
+
+        // Set background color to gray
+        renderer.setClearColor(0x808080); // Gray background
+
+        // Add lights
+        const light = new THREE.DirectionalLight(0xffffff, 2); // Increased intensity
+        light.position.set(1, 1, 1).normalize();
+        scene.add(light);
+
+        const ambientLight = new THREE.AmbientLight(0xffffff, 0.5); // Additional ambient light
+        scene.add(ambientLight);
+
+        // Load the .glb model
+        const loader = new THREE.GLTFLoader();
+        loader.load('tabla.glb', function(gltf) {
+            scene.add(gltf.scene);
+        }, undefined, function(error) {
+            console.error(error);
+        });
+
+        // Set camera position
+        camera.position.set(1, 3, 12);
+
+        // Add OrbitControls
+        const controls = new THREE.OrbitControls(camera, renderer.domElement);
+        controls.enableDamping = true;
+        controls.dampingFactor = 0.25;
+        controls.maxPolarAngle = Math.PI / 2;
+
+        // Animation loop
+        function animate() {
+            requestAnimationFrame(animate);
+            controls.update();
+            renderer.render(scene, camera);
+        }
+        animate();
+    </script>
+</body>
+</html>
