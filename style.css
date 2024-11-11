@@ -122,13 +122,30 @@ footer {
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
-
-.tp-content img {
-    width: 100%;
-    height: auto;
-    margin-bottom: 15px;
-    border-radius: 5px;
+.tp-card {
+    width: 350px; /* Augmentez cette valeur selon votre préférence */
+    padding: 20px; /* Ajoutez du padding pour un espace intérieur */
+    border-radius: 8px; /* Adoucit les coins */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ajoute une ombre pour un effet de profondeur */
 }
+
+.tp-card h3 {
+    font-size: 1.2em; /* Ajuste la taille du titre */
+}
+
+.tp-card .tp-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.tp-card img,
+.tp-card video {
+    max-width: 100%; /* Assure que les médias s’adaptent à la taille du conteneur */
+    border-radius: 6px;
+}
+
+
 
 .cta-button {
     display: inline-block;
