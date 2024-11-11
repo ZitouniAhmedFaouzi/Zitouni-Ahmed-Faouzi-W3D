@@ -132,7 +132,7 @@ footer {
 }
 
 .tp-card video {
-    max-width: 50%; /* Assure que les médias s’adaptent à la taille du conteneur */
+    max-width: 100%; /* Assure que les médias s’adaptent à la taille du conteneur */
     border-radius: 7px;
 }
 
