@@ -134,10 +134,13 @@ footer {
     align-items: center;
 }
 
-.tp-card img,
-.tp-card video {
+.tp-card img,{
     max-width: 100%; /* Assure que les médias s’adaptent à la taille du conteneur */
     border-radius: 6px;
+}
+.tp-card video {
+    max-width: 50%; /* Assure que les médias s’adaptent à la taille du conteneur */
+    border-radius: 7px;
 }
 
 
