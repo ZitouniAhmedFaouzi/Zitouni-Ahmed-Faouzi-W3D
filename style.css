@@ -131,12 +131,6 @@ footer {
     border-radius: 5px;
 }
 
-.tp-card video {
-    max-width: 100%; /* Assure que les médias s’adaptent à la taille du conteneur */
-   
-}
-
-
 
 .cta-button {
     display: inline-block;
