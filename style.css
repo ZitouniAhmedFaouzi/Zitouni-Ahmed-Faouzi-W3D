@@ -116,12 +116,7 @@ footer {
     text-align: center;
 }
 
-.tp-card {
-    background-color: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
+
 .tp-card {
     width: 350px; /* Augmentez cette valeur selon votre préférence */
     padding: 20px; /* Ajoutez du padding pour un espace intérieur */
