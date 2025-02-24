@@ -11,33 +11,63 @@ body {
 }
 
 .navbar {
-    background-color: #003de402;
-    padding: 15px;
-    text-align: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(50, 50, 50, 0.9); /* Gris foncé */
+    backdrop-filter: blur(10px);
+    padding: 15px 0;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
 }
-
 .navbar ul {
-    list-style-type: none;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 0;
+    margin: 0;
 }
 
 .navbar ul li {
-    display: inline;
-    margin: 0 10px;
+    display: inline-block;
 }
 
 .navbar ul li a {
     color: white;
     text-decoration: none;
-    font-size: 16px;
-    transition: color 0.3s;
+    font-size: 18px;
+    font-weight: 500;
+    padding: 10px 15px;
+    position: relative;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Effet souligné au survol */
+.navbar ul li a::after {
+    content: "";
+    position: absolute;
+    bottom: -3px;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: #030302;
+    transition: width 0.3s ease-in-out, left 0.3s ease-in-out;
+}
+
+.navbar ul li a:hover::after {
+    width: 100%;
+    left: 0;
 }
 
 .navbar ul li a:hover {
     color: #ffa07a;
 }
 
+/* Sections avec padding pour éviter le chevauchement */
 .home-section, .about-section, .skills-section, .modules-section, .contact-section {
-    padding: 60px 20px;
+    padding: 80px 20px;
     text-align: center;
 }
 
