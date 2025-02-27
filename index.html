@@ -9,7 +9,12 @@
 </head>
 <body>
     <nav class="navbar">
-        <ul>
+        <div class="burger">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <ul class="nav-links">
             <li><a href="#home"><i class="fas fa-home"></i> Accueil</a></li>
             <li><a href="#about"><i class="fas fa-user"></i> À propos</a></li>
             <li><a href="#skills"><i class="fas fa-code"></i> Compétences</a></li>
@@ -17,8 +22,17 @@
             <li><a href="#contact"><i class="fas fa-envelope"></i> Contact</a></li>
         </ul>
     </nav>
-    
-    
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const burger = document.querySelector(".burger");
+            const navLinks = document.querySelector(".nav-links");
+
+            burger.addEventListener("click", () => {
+                navLinks.classList.toggle("active");
+                burger.classList.toggle("toggle");
+            });
+        });
+    </script>
 
     <section id="home" class="home-section">
         <div class="home-content">
