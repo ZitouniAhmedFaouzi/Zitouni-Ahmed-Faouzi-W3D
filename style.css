@@ -152,18 +152,7 @@ body {
     }
 }
 
-/* Animation du menu burger */
-.burger.toggle div:nth-child(1) {
-    transform: rotate(45deg) translate(5px, 5px);
-}
 
-.burger.toggle div:nth-child(2) {
-    opacity: 0;
-}
-
-.burger.toggle div:nth-child(3) {
-    transform: rotate(-45deg) translate(5px, -5px);
-}
 
 /* Sections avec padding pour éviter le chevauchement */
 .home-section, .about-section, .skills-section, .modules-section, .contact-section {
@@ -189,6 +178,9 @@ body {
 
 .cta-button:hover {
     background-color: rgba(89, 0, 255, 0.8);;
+}
+.cta-button > * {
+    transition: inherit;
 }
 
 .skills-grid, .modules-grid {
@@ -265,7 +257,63 @@ body {
     color: #ff5733; /* Changement de couleur au survol */
 }
 
+/* -----------------************************************************************/
+.module-card {
+    position: relative;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 30px;
+    width: 260px;
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease-in-out;
+    overflow: hidden;
+}
 
+.module-card::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 100, 150, 0.15) 10%, transparent 70%);
+    transition: opacity 0.3s ease-in-out;
+    opacity: 0;
+}
+
+.module-card:hover::before {
+    opacity: 1;
+}
+
+.module-card h3 {
+    font-size: 22px;
+    margin-top: 10px;
+    color: #222; /* Couleur plus foncée pour améliorer le contraste */
+    font-weight: 600;
+}
+.module-card p {
+    font-size: 15px;
+    color: rgba(0, 0, 0, 0.85); /* Augmente l'opacité pour une meilleure lisibilité */
+    font-weight: 500;
+}
+.module-card i {
+    font-size: 40px;
+    color: #6a11cb; /* Couleur plus visible */
+    transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+.module-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 25px rgba(255, 100, 150, 0.2);
+}
+
+.module-card:hover i {
+    transform: scale(1.2);
+    color: #ff5733; /* Changement de couleur au survol */
+}
 footer {
     background-color: #333;
     color: white;
